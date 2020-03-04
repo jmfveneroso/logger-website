@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Apply database migrations.
-python manage.py migrate        
+# python manage.py migrate
+echo 'Starting server'
 
 # Start webpack server.
 if [[ $DEBUG == *1* ]]; then
@@ -10,6 +11,11 @@ if [[ $DEBUG == *1* ]]; then
   npm run start &
   cd ..
 fi
+
+cd frontend
+npm install
+npm run build
+cd ..
 
 # Tries to start server 10 times.
 COUNT=0

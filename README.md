@@ -2,5 +2,6 @@
 Docker python base project.
 
 ```
-docker-compose build
+sudo docker build -t logger-website .
+sudo docker run -p 8888:80 -v $(pwd):/code --rm logger-website
 ```
